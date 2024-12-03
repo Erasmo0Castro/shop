@@ -28,7 +28,7 @@ bool picapollo = false, hamburguesa= false, polloconvegetales=false;
                Text("Hola, Bienvenidooo", 
                style:AppWidget.boldTextFeildStyle()),
                Container(
-                margin: EdgeInsets.only(right: 20.0),
+                margin: const EdgeInsets.only(right: 20.0),
                 padding: const EdgeInsets.all(3),
               decoration: BoxDecoration(color: Colors.black, borderRadius: BorderRadius.circular(10),
                ),
@@ -43,35 +43,35 @@ bool picapollo = false, hamburguesa= false, polloconvegetales=false;
               Text("Descubre los mejores platillos", 
                style:AppWidget.lighteTextFeildStyle()
                ),
-               SizedBox(height: 20.0,
+               const SizedBox(height: 20.0,
                ),
           
                Container(
-                margin: EdgeInsets.only(right: 20.0),
+                margin: const EdgeInsets.only(right: 20.0),
                 child: showItem()),
-               SizedBox(height: 30.0,),
+               const SizedBox(height: 30.0,),
                SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                  child: Row(
                   children: [
                   Container(
-                    margin: EdgeInsets.all(4),
+                    margin: const EdgeInsets.all(4),
                     child: Material(
                       
                       elevation: 5.0,
                       borderRadius: BorderRadius.circular(20),
                       child: Container(
-                        padding: EdgeInsets.all(14),
+                        padding: const EdgeInsets.all(14),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                           Image.asset("images/tacos.jpg", height: 150, width: 150, fit: BoxFit.cover,),
                           Text("Tacos", 
                           style: AppWidget.semiBoldTextFeildStyle(),),
-                          SizedBox(height: 5.0,),
+                          const SizedBox(height: 5.0,),
                           Text("Tacos de pollo, res y queso", 
                           style: AppWidget.lighteTextFeildStyle(),),
-                          SizedBox(height: 5.0,),
+                          const SizedBox(height: 5.0,),
                           Text("\$350", 
                           style: AppWidget.semiBoldTextFeildStyle(),)
                       
@@ -79,24 +79,24 @@ bool picapollo = false, hamburguesa= false, polloconvegetales=false;
                       ),
                     ),
                   ),
-                  SizedBox(width: 15.0,),
+                  const SizedBox(width: 15.0,),
                    Container(
-                    margin: EdgeInsets.all(4),
+                    margin: const EdgeInsets.all(4),
                      child: Material(
                       elevation: 5.0,
                       borderRadius: BorderRadius.circular(20),
                       child: Container(
-                        padding: EdgeInsets.all(14),
+                        padding: const EdgeInsets.all(14),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                           Image.asset("images/pizza.jpg", height: 150, width: 150, fit: BoxFit.cover,),
                           Text("Pizza", 
                           style: AppWidget.semiBoldTextFeildStyle(),),
-                          SizedBox(height: 5.0,),
+                          const SizedBox(height: 5.0,),
                           Text("Diferentes especialidades", 
                           style: AppWidget.lighteTextFeildStyle(),),
-                          SizedBox(height: 5.0,),
+                          const SizedBox(height: 5.0,),
                           Text("\$1,350", 
                           style: AppWidget.semiBoldTextFeildStyle(),)
                       
@@ -135,7 +135,7 @@ bool picapollo = false, hamburguesa= false, polloconvegetales=false;
                      width: 100.0,
                      height: 100.0,
                     
-                     decoration: BoxDecoration(
+                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
                         fit: BoxFit.cover,
@@ -156,7 +156,7 @@ bool picapollo = false, hamburguesa= false, polloconvegetales=false;
                    width: 100.0,
                    height: 100.0,
                       
-                   decoration: BoxDecoration(
+                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
                       fit: BoxFit.cover,
@@ -176,15 +176,13 @@ bool picapollo = false, hamburguesa= false, polloconvegetales=false;
                    width: 100.0,
                    height: 100.0,
                       
-                   decoration: BoxDecoration(
+                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
                       fit: BoxFit.cover,
                       image: 
                       AssetImage("images/pollo con vegetales.jpg",  )
-
                     ),
-
                    ),
                     
                   ),
