@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:lishop/Widgets/widget_support.dart';
 
@@ -98,18 +100,56 @@ bool picapollo = false, hamburguesa= false, polloconvegetales=false;
                           style: AppWidget.lighteTextFeildStyle(),),
                           const SizedBox(height: 5.0,),
                           Text("\$1,350", 
-                          style: AppWidget.semiBoldTextFeildStyle(),)
-                      
+                          style: AppWidget.semiBoldTextFeildStyle(),)              
                         ],),
                       ),
-                                       ),
+                     ),
                    ),
-                 ],
-                 
+                 ], 
+                 ),
+               ),
+               SizedBox(height: 30.0,),
+               Container(
+                margin: EdgeInsets.only(right: 20.0),
+                 child: Material(
+                  elevation: 5.0,
+                  borderRadius: BorderRadius.circular(20),
+                   child: Container(
+                    padding: EdgeInsets.all(5),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                      Image.asset(
+                        "images/prueba.jpg", 
+                        height: 120,
+                        width: 120, 
+                        fit: BoxFit.cover,),
+                        SizedBox(width: 20.0,),
+                        Column(children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width/2,
+                            child: Text("Plato sabroso muy ricoooooooooooo",
+                             style: AppWidget.semiBoldTextFeildStyle(),),
+                          ),
+                          SizedBox(height: 5.0,),
+                           Container(
+                            width: MediaQuery.of(context).size.width/2,
+                            child: Text("Para chuparse los dedos",
+                             style: AppWidget.lighteTextFeildStyle(),),
+                          ),
+                           SizedBox(height: 5.0,),
+                           Container(
+                            width: MediaQuery.of(context).size.width/2,
+                            child: Text("\$400",
+                             style: AppWidget.semiBoldTextFeildStyle(),),
+                          ),
+                        ],)
+                   
+                    ],),
+                   ),
                  ),
                )
-                    
-                    ],
+         ],
         ),
       ),
     );
