@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:lishop/pages/bottomnav.dart';
 import 'package:lishop/pages/home.dart';
 
+//// colores: marron >255, 93, 37, 3 y beige>255, 161, 110, 34
+
+
 
 void main() {
   runApp(const MyApp());
@@ -51,8 +54,8 @@ class _MyHomePageState extends State<MyHomePage> {
     
     return Scaffold(
       appBar: AppBar(
-        
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: const Color.fromARGB(255, 161, 110, 34), // Cambia el color aquí
+
         
         title: Text(widget.title),
       ),
