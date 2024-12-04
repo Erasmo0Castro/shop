@@ -5,6 +5,7 @@ import 'package:lishop/pages/order.dart';
 import 'package:lishop/pages/profile.dart';
 import 'package:lishop/pages/wallet.dart';
 
+//// colores: marron >255, 93, 37, 3 y beige>255, 161, 110, 34
 
 class BottomNav extends StatefulWidget {
   const BottomNav({super.key});
@@ -39,8 +40,8 @@ class _BottomNavState extends State<BottomNav> {
         bottomNavigationBar: 
         CurvedNavigationBar(
           height: 65,
-          backgroundColor:  Colors.white,
-          color: Colors.black,
+          backgroundColor:  const Color.fromARGB(255, 123, 50, 5),
+          color: const Color.fromARGB(255, 93, 37, 3),
           animationDuration: Duration(milliseconds: 500),
           onTap: (int index) {
             setState(() {

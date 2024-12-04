@@ -1,8 +1,8 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:lishop/Widgets/widget_support.dart';
+import 'package:lishop/pages/detail.dart';
 
+// colores: marron >255, 93, 37, 3 y beige>255, 161, 110, 34
 
 class Home extends StatefulWidget {
   const Home ({super.key});
@@ -13,13 +13,33 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   
-bool picapollo = false, hamburguesa= false, polloconvegetales=false;
+bool cerveza = false, vino= false, ron=false;
   
   @override
   Widget build(BuildContext context) {
     
     return Scaffold(
       body: Container(
+      // Aplicar gradiente
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            Color.fromARGB(255, 0, 0, 0),   // Marrón oscuro/Negro// Color inicial (rosa claro)
+            Color.fromARGB(255, 0, 0, 0),   // Marrón oscuro/Negro// Color inicial (rosa claro)
+            Color.fromARGB(255, 44, 22, 8),   // Marrón oscuro/Negro// Color inicial (rosa claro)
+            
+          
+            
+            Color.fromARGB(255, 70, 44, 37),   // Marrón claro
+            Color.fromARGB(255, 70, 44, 37),   // Marrón claro
+            Color.fromARGB(255, 27, 22, 22),   // Marrón oscuro/Negro// Color inicial (rosa claro)
+            Color.fromARGB(255, 27, 22, 22),   // Marrón oscuro/Negro// Color inicial (rosa claro)
+          ],
+          begin: Alignment.topRight, // Inicio del gradiente
+          end: Alignment.bottomRight, // Fin del gradiente
+        ),),
+
+      child:  Container(
         margin: const EdgeInsets.only(top: 50.0, left: 20.0, right: 10.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,28 +47,40 @@ bool picapollo = false, hamburguesa= false, polloconvegetales=false;
            Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
              children: [
-               Text("Hola, Bienvenidooo", 
-               style:AppWidget.boldTextFeildStyle()),
+               Text("¡Bienvenido a DR LStore!", 
+               style:AppWidget.headWhiteTextFeildStyle()),
                Container(
                 margin: const EdgeInsets.only(right: 20.0),
                 padding: const EdgeInsets.all(3),
-              decoration: BoxDecoration(color: Colors.black, borderRadius: BorderRadius.circular(10),
+              decoration: BoxDecoration(color: const Color.fromARGB(255, 250, 200, 34), borderRadius: BorderRadius.circular(10),
                ),
-              child: const Icon(Icons.shopping_cart_outlined, color: Color.fromARGB(255, 255, 255, 255),),
+              child: const Icon(Icons.shopping_cart_outlined, color: Color.fromARGB(255, 0, 0, 0),),
                ),
-             ],
+             ],//
+
            ),
-           const SizedBox(height: 20.0 ,),
-             Text("El mejor menú", 
-               style:AppWidget.headlineTextFeildStyle()
+           const SizedBox(height: 30.0 ,),
+             Text("Explora nuestra selección de vinos, cervezas y licores.",
+               style:AppWidget.subWhiteTextFeildStyle()
                ),
-              Text("Descubre los mejores platillos", 
-               style:AppWidget.lighteTextFeildStyle()
-               ),
-               const SizedBox(height: 20.0,
-               ),
+               const SizedBox(height: 20.0,),
+               
+              Container(
+                  padding: EdgeInsets.all(7),
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 250, 200, 34), // Fondo blanco
+                  borderRadius: BorderRadius.circular(10), // Bordes redondeados opcional
+                ),
+                
+                child: Text("¡Top  mas vendido!", 
+                 style:AppWidget.semiBoldTextFeildStyle()
+                 ),
+              ),
+               const SizedBox(height: 40.0,),
+          
           
                Container(
+                
                 margin: const EdgeInsets.only(right: 20.0),
                 child: showItem()),
                const SizedBox(height: 30.0,),
@@ -56,28 +88,51 @@ bool picapollo = false, hamburguesa= false, polloconvegetales=false;
                 scrollDirection: Axis.horizontal,
                  child: Row(
                   children: [
-                  Container(
-                    margin: const EdgeInsets.all(4),
-                    child: Material(
-                      
-                      elevation: 5.0,
-                      borderRadius: BorderRadius.circular(20),
-                      child: Container(
-                        padding: const EdgeInsets.all(14),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                          Image.asset("images/tacos.jpg", height: 150, width: 150, fit: BoxFit.cover,),
-                          Text("Tacos", 
-                          style: AppWidget.semiBoldTextFeildStyle(),),
-                          const SizedBox(height: 5.0,),
-                          Text("Tacos de pollo, res y queso", 
-                          style: AppWidget.lighteTextFeildStyle(),),
-                          const SizedBox(height: 5.0,),
-                          Text("\$350", 
-                          style: AppWidget.semiBoldTextFeildStyle(),)
-                      
-                        ],),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(context,
+                       MaterialPageRoute(
+                        builder: 
+                        (context)=> Details() ));
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.all(4),
+                      child: Material(
+                        
+                        elevation: 5.0,
+                        borderRadius: BorderRadius.circular(20),
+                        child: Container(
+                          padding: const EdgeInsets.all(14),
+                           decoration: BoxDecoration(
+                        border: Border.all(
+                          color: const Color.fromARGB(255, 0, 0, 0), // Color del borde
+                          width: 4.0, // Grosor del borde
+                        ),
+                        borderRadius: BorderRadius.circular(20), // Bordes redondeados (opcional)
+                        color: Colors.white, // Fondo del contenedor (opcional)
+  ),
+
+  
+                          child: Column(
+                            
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              
+                              
+                            Image.asset("images/sixPackPresidente.jpg", height: 100, width: 100, fit: BoxFit.cover,),
+                            Text("Six Pack Presidente", 
+                            style: AppWidget.semiBoldTextFeildStyle(),),
+                            const SizedBox(height: 5.0,),
+                            Text("8 Oz cada lata", 
+                            style: AppWidget.lighteTextFeildStyle(),),
+                            const SizedBox(height: 5.0,),
+                            Text("\$380", 
+                            style: AppWidget.semiBoldTextFeildStyle(),)
+                        
+                          ],
+                          ),
+                        ),
+                        
                       ),
                     ),
                   ),
@@ -88,18 +143,29 @@ bool picapollo = false, hamburguesa= false, polloconvegetales=false;
                       elevation: 5.0,
                       borderRadius: BorderRadius.circular(20),
                       child: Container(
+
                         padding: const EdgeInsets.all(14),
+                         decoration: BoxDecoration(
+                        border: Border.all(
+                          color: const Color.fromARGB(255, 0, 0, 0), // Color del borde
+                          width: 4.0, // Grosor del borde
+                        ),
+                        borderRadius: BorderRadius.circular(20), // Bordes redondeados (opcional)
+                        color: Colors.white, // Fondo del contenedor (opcional)
+  ),
+                        
+
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                          Image.asset("images/pizza.jpg", height: 150, width: 150, fit: BoxFit.cover,),
-                          Text("Pizza", 
+                          Image.asset("images/redbull473ml.jpg", height: 100, width: 100, fit: BoxFit.cover,),
+                          Text("Red bull", 
                           style: AppWidget.semiBoldTextFeildStyle(),),
                           const SizedBox(height: 5.0,),
-                          Text("Diferentes especialidades", 
+                          Text("473 ml de pura energía", 
                           style: AppWidget.lighteTextFeildStyle(),),
                           const SizedBox(height: 5.0,),
-                          Text("\$1,350", 
+                          Text("\$105", 
                           style: AppWidget.semiBoldTextFeildStyle(),)              
                         ],),
                       ),
@@ -110,17 +176,25 @@ bool picapollo = false, hamburguesa= false, polloconvegetales=false;
                ),
                SizedBox(height: 30.0,),
                Container(
-                margin: EdgeInsets.only(right: 20.0),
+                margin: EdgeInsets.only(right: 15.0),
                  child: Material(
                   elevation: 5.0,
                   borderRadius: BorderRadius.circular(20),
                    child: Container(
                     padding: EdgeInsets.all(5),
+                     decoration: BoxDecoration(
+                        border: Border.all(
+                          color: const Color.fromARGB(255, 0, 0, 0), // Color del borde
+                          width: 4.0, // Grosor del borde
+                        ),
+                        borderRadius: BorderRadius.circular(20), // Bordes redondeados (opcional)
+                        color: Colors.white, // Fondo del contenedor (opcional)
+  ),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                       Image.asset(
-                        "images/prueba.jpg", 
+                        "images/goldLabelJonnyW.jpg", 
                         height: 120,
                         width: 120, 
                         fit: BoxFit.cover,),
@@ -128,19 +202,19 @@ bool picapollo = false, hamburguesa= false, polloconvegetales=false;
                         Column(children: [
                           Container(
                             width: MediaQuery.of(context).size.width/2,
-                            child: Text("Plato sabroso muy ricoooooooooooo",
+                            child: Text("Johnnie Walker Gold Label Reserve",
                              style: AppWidget.semiBoldTextFeildStyle(),),
                           ),
                           SizedBox(height: 5.0,),
                            Container(
                             width: MediaQuery.of(context).size.width/2,
-                            child: Text("Para chuparse los dedos",
+                            child: Text("Whisky con notas de miel, vainilla y madera ahumada.",
                              style: AppWidget.lighteTextFeildStyle(),),
                           ),
                            SizedBox(height: 5.0,),
                            Container(
                             width: MediaQuery.of(context).size.width/2,
-                            child: Text("\$400",
+                            child: Text("\$4,710",
                              style: AppWidget.semiBoldTextFeildStyle(),),
                           ),
                         ],)
@@ -152,6 +226,7 @@ bool picapollo = false, hamburguesa= false, polloconvegetales=false;
          ],
         ),
       ),
+    ),
     );
   }
                
@@ -161,9 +236,9 @@ bool picapollo = false, hamburguesa= false, polloconvegetales=false;
                 children: [
                  GestureDetector(
                   onTap: (){
-                    picapollo=true;
-                    hamburguesa=false;
-                    polloconvegetales=false;
+                    cerveza=true;
+                    vino=false;
+                    ron=false;
                     setState(() {
                       
                     });
@@ -175,19 +250,20 @@ bool picapollo = false, hamburguesa= false, polloconvegetales=false;
                      width: 100.0,
                      height: 100.0,
                     
-                     decoration: const BoxDecoration(
+                     decoration: BoxDecoration(
+                      border: Border.all(
+                      color: Color.fromARGB(255, 255, 196, 0), // Color dorado
+                      width: 5.0, // Grosor del borde
+      ),
                       shape: BoxShape.circle,
                       image: DecorationImage(
                         fit: BoxFit.cover,
                         image: 
-                        AssetImage("images/pica pollo.jpg",  )
-                   
+                        AssetImage("images/pequenaCervezaPresidente.jpg",  )               
                       ),
-                   
-                     ),
-                      
+                     ),         
+                    ),                               
                     ),
-                                   ),
                  ),
                 Material(
                   elevation: 5.0,
@@ -196,17 +272,18 @@ bool picapollo = false, hamburguesa= false, polloconvegetales=false;
                    width: 100.0,
                    height: 100.0,
                       
-                   decoration: const BoxDecoration(
+                   decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Color.fromARGB(255, 255, 196, 0), // Color dorado
+                      width: 5.0, // Grosor del borde
+      ),
                     shape: BoxShape.circle,
                     image: DecorationImage(
                       fit: BoxFit.cover,
                       image: 
-                      AssetImage("images/hamburguesa.jpg",  )
-
+                      AssetImage("images/vinoCarlosRossi.png",  )
                     ),
-
-                   ),
-                    
+                   ),   
                   ),
                 ),
                 Material(
@@ -216,21 +293,23 @@ bool picapollo = false, hamburguesa= false, polloconvegetales=false;
                    width: 100.0,
                    height: 100.0,
                       
-                   decoration: const BoxDecoration(
+                   decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Color.fromARGB(255, 255, 196, 0), // Color dorado
+                      width: 5.0, // Grosor del borde
+      ),
                     shape: BoxShape.circle,
                     image: DecorationImage(
                       fit: BoxFit.cover,
                       image: 
-                      AssetImage("images/pollo con vegetales.jpg",  )
+                      AssetImage("images/brugal.jpg",  )
                     ),
                    ),
                     
                   ),
-                ),
-                
-                ],
-               );
+                ),   
+              ],
+            );
           }
-
-     
+          
 }
