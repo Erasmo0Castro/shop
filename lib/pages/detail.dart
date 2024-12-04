@@ -42,7 +42,7 @@ class _DetailsState extends State<Details> {
         ),), // Cambia el color aquí
 
       child: Container(
-        margin: EdgeInsets.only(top: 50.0, left: 20.0, right: 20.0),
+        margin: const EdgeInsets.only(top: 50.0, left: 20.0, right: 20.0),
         child: 
         Column( 
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,13 +51,13 @@ class _DetailsState extends State<Details> {
           onTap: (){
             Navigator.pop(context);
           },
-          child: Icon(Icons.arrow_back_ios_new_outlined,
-          color: const Color.fromARGB(255, 93, 37, 3 ),
+          child: const Icon(Icons.arrow_back_ios_new_outlined,
+          color: Color.fromARGB(255, 93, 37, 3 ),
           ),
         ),
         Image.asset("images/sixPackPresidente.jpg", width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.height/2.5, 
         fit: BoxFit.fill),
-        SizedBox(height: 15.0,),
+        const SizedBox(height: 15.0,),
 
         Row(
  
@@ -71,7 +71,7 @@ class _DetailsState extends State<Details> {
                   AppWidget.boldTextFeildStyle(),),      
               ],
             ),   
-            Spacer(),           
+            const Spacer(),           
           GestureDetector(
             onTap: (){
               if(a>1){
@@ -84,14 +84,14 @@ class _DetailsState extends State<Details> {
               decoration: BoxDecoration(
                 color:
                const Color.fromARGB(255, 93, 37, 3),borderRadius: BorderRadius.circular(10)),
-                  child: Icon(Icons.remove, 
+                  child: const Icon(Icons.remove, 
               color:
                Colors.white,),
             ),
           ),
-          SizedBox(width: 20.0,),
+          const SizedBox(width: 20.0,),
           Text(a.toString(), style: AppWidget.semiBoldTextFeildStyle(),),
-          SizedBox(width: 20.0,),
+          const SizedBox(width: 20.0,),
           GestureDetector(
             onTap: (){
               ++a;
@@ -102,31 +102,31 @@ class _DetailsState extends State<Details> {
               decoration: BoxDecoration(
                 color:
                const Color.fromARGB(255, 93, 37, 3),borderRadius: BorderRadius.circular(10)),
-                  child: Icon(Icons.add, 
+                  child: const Icon(Icons.add, 
               color:
                Colors.white,),
             ),
           ),
         ], 
         ),
-        SizedBox(height: 20.0,),
+        const SizedBox(height: 20.0,),
         Text("El six-pack de Cerveza Presidente trae una cerveza dorada, ligera y con un toque suave y dulce, perfecta para disfrutar bien fría. Tiene 5% de alcohol.",
         maxLines: 3,
         style: AppWidget.lighteBigTextFeildStyle(),
         
         ),
-        SizedBox(height: 55.0,),
+        const SizedBox(height: 55.0,),
         Row(children: [
           Text("Delivery 24/7", style: AppWidget.headlineTextFeildStyle(),),
-        SizedBox(width: 55.0,),
-        Icon(Icons.alarm, 
+        const SizedBox(width: 55.0,),
+        const Icon(Icons.alarm, 
         color:
-         const Color.fromARGB(255, 69, 34, 6), ),
-        SizedBox(width: 5.0,),
+         Color.fromARGB(255, 69, 34, 6), ),
+        const SizedBox(width: 5.0,),
           Text("25 minutos", style: AppWidget.headlineTextFeildStyle(),),
 
         ],),
-        Spacer(),
+        const Spacer(),
         Padding(
           padding: const EdgeInsets.only(bottom: 45.0),
           child: Row(
@@ -141,25 +141,25 @@ class _DetailsState extends State<Details> {
             ],),
             Container(
               width: MediaQuery.of(context).size.width/2,
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(color: const Color.fromARGB(255, 161, 110, 34), borderRadius: BorderRadius.circular(10),),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end ,
                 children: [
-                Text("Agregar", style: 
+                const Text("Agregar", style: 
                 TextStyle(color: Colors.white, fontSize: 20.0,),),
                 
-                SizedBox(width: 30.0,),
+                const SizedBox(width: 30.0,),
                 Container(
-                  padding: EdgeInsets.all(3),
+                  padding: const EdgeInsets.all(3),
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 93, 37, 3), borderRadius: BorderRadius.circular(8)
                   ),
-                  child: Icon(
+                  child: const Icon(
                     Icons.shopping_cart_outlined, color: Colors.white,
                   ),
                 ),
-                SizedBox(width: 10.0,),
+                const SizedBox(width: 10.0,),
               
               
               

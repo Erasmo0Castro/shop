@@ -26,10 +26,10 @@ class _BottomNavState extends State<BottomNav> {
   
   @override
   void initState() {
-    homepage=Home();
-    order=Order();
-    profile=Profile();
-    wallet=Wallet();
+    homepage=const Home();
+    order=const Order();
+    profile=const Profile();
+    wallet=const Wallet();
     pages=[homepage, order, wallet, profile];
     super.initState();
   }
@@ -42,13 +42,13 @@ class _BottomNavState extends State<BottomNav> {
           height: 65,
           backgroundColor:  const Color.fromARGB(255, 123, 50, 5),
           color: const Color.fromARGB(255, 93, 37, 3),
-          animationDuration: Duration(milliseconds: 500),
+          animationDuration: const Duration(milliseconds: 500),
           onTap: (int index) {
             setState(() {
               currentTabIndex=index;
             });
           },     
-          items: [
+          items: const [
           Icon(
             Icons.home_outlined,
             color: Colors.white,
