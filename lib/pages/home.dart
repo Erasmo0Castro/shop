@@ -66,7 +66,7 @@ bool cerveza = false, vino= false, ron=false;
                const SizedBox(height: 20.0,),
                
               Container(
-                  padding: EdgeInsets.all(7),
+                  padding: const EdgeInsets.all(7),
                 decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 250, 200, 34), // Fondo blanco
                   borderRadius: BorderRadius.circular(10), // Bordes redondeados opcional
@@ -93,7 +93,7 @@ bool cerveza = false, vino= false, ron=false;
                       Navigator.push(context,
                        MaterialPageRoute(
                         builder: 
-                        (context)=> Details() ));
+                        (context)=> const Details() ));
                     },
                     child: Container(
                       margin: const EdgeInsets.all(4),
@@ -174,14 +174,14 @@ bool cerveza = false, vino= false, ron=false;
                  ], 
                  ),
                ),
-               SizedBox(height: 30.0,),
+               const SizedBox(height: 30.0,),
                Container(
-                margin: EdgeInsets.only(right: 15.0),
+                margin: const EdgeInsets.only(right: 15.0),
                  child: Material(
                   elevation: 5.0,
                   borderRadius: BorderRadius.circular(20),
                    child: Container(
-                    padding: EdgeInsets.all(5),
+                    padding: const EdgeInsets.all(5),
                      decoration: BoxDecoration(
                         border: Border.all(
                           color: const Color.fromARGB(255, 0, 0, 0), // Color del borde
@@ -198,21 +198,21 @@ bool cerveza = false, vino= false, ron=false;
                         height: 120,
                         width: 120, 
                         fit: BoxFit.cover,),
-                        SizedBox(width: 20.0,),
+                        const SizedBox(width: 20.0,),
                         Column(children: [
-                          Container(
+                          SizedBox(
                             width: MediaQuery.of(context).size.width/2,
                             child: Text("Johnnie Walker Gold Label Reserve",
                              style: AppWidget.semiBoldTextFeildStyle(),),
                           ),
-                          SizedBox(height: 5.0,),
-                           Container(
+                          const SizedBox(height: 5.0,),
+                           SizedBox(
                             width: MediaQuery.of(context).size.width/2,
                             child: Text("Whisky con notas de miel, vainilla y madera ahumada.",
                              style: AppWidget.lighteTextFeildStyle(),),
                           ),
-                           SizedBox(height: 5.0,),
-                           Container(
+                           const SizedBox(height: 5.0,),
+                           SizedBox(
                             width: MediaQuery.of(context).size.width/2,
                             child: Text("\$4,710",
                              style: AppWidget.semiBoldTextFeildStyle(),),
@@ -252,11 +252,11 @@ bool cerveza = false, vino= false, ron=false;
                     
                      decoration: BoxDecoration(
                       border: Border.all(
-                      color: Color.fromARGB(255, 255, 196, 0), // Color dorado
+                      color: const Color.fromARGB(255, 255, 196, 0), // Color dorado
                       width: 5.0, // Grosor del borde
       ),
                       shape: BoxShape.circle,
-                      image: DecorationImage(
+                      image: const DecorationImage(
                         fit: BoxFit.cover,
                         image: 
                         AssetImage("images/pequenaCervezaPresidente.jpg",  )               
@@ -274,11 +274,11 @@ bool cerveza = false, vino= false, ron=false;
                       
                    decoration: BoxDecoration(
                     border: Border.all(
-                      color: Color.fromARGB(255, 255, 196, 0), // Color dorado
+                      color: const Color.fromARGB(255, 255, 196, 0), // Color dorado
                       width: 5.0, // Grosor del borde
       ),
                     shape: BoxShape.circle,
-                    image: DecorationImage(
+                    image: const DecorationImage(
                       fit: BoxFit.cover,
                       image: 
                       AssetImage("images/vinoCarlosRossi.png",  )
@@ -295,11 +295,11 @@ bool cerveza = false, vino= false, ron=false;
                       
                    decoration: BoxDecoration(
                     border: Border.all(
-                      color: Color.fromARGB(255, 255, 196, 0), // Color dorado
+                      color: const Color.fromARGB(255, 255, 196, 0), // Color dorado
                       width: 5.0, // Grosor del borde
       ),
                     shape: BoxShape.circle,
-                    image: DecorationImage(
+                    image: const DecorationImage(
                       fit: BoxFit.cover,
                       image: 
                       AssetImage("images/brugal.jpg",  )
