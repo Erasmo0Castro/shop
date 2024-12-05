@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:lishop/Widgets/widget_support.dart';
-import 'package:lishop/pages/signup.dart';
+import 'package:lishop/pages/login.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class SignUp extends StatefulWidget {
+  const SignUp({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<SignUp> createState() => _SignUpState();
 }
 
-class _LoginState extends State<Login> {
+class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
       body: Container(
         child: Stack(
           children: [
@@ -24,8 +23,8 @@ class _LoginState extends State<Login> {
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    Color.fromARGB(255, 61, 3, 3),
-                    Color.fromARGB(255, 136, 7, 7),
+                    Color.fromARGB(255, 0, 0, 0),
+                    Color.fromARGB(255, 0, 0, 0),
                   ],
                 ),
               ),
@@ -88,8 +87,16 @@ class _LoginState extends State<Login> {
                         children: [
                           const SizedBox(height: 5.0),
                           Text(
-                            "Iniciar sesion",
+                            "Registrarse",
                             style: AppWidget.headlineTextFeildStyle(),
+                          ),
+                          TextField(
+                            decoration: InputDecoration(
+                              hintText: 'Nombre',
+                              hintStyle:
+                                  AppWidget.semiBoldTextFeildStyle(),
+                              prefixIcon: const Icon(Icons.person_2_outlined),
+                            ),
                           ),
                           TextField(
                             decoration: InputDecoration(
@@ -108,14 +115,7 @@ class _LoginState extends State<Login> {
                               prefixIcon: const Icon(Icons.password_outlined),
                             ),
                           ),
-                          const SizedBox(height: 30.0),
-                          Container(
-                            alignment: Alignment.topRight,
-                            child: Text(
-                              "¿Olvido la contraseña?",
-                              style: AppWidget.lighteBigTextFeildStyle(),
-                            ),
-                          ),
+                         
                           const SizedBox(height: 50.0),
                           Material(
                                 borderRadius: BorderRadius.circular(20),
@@ -124,7 +124,7 @@ class _LoginState extends State<Login> {
                               padding: EdgeInsets.symmetric(vertical: 8.0),
                               width: 200,
                               decoration: BoxDecoration(
-                                color: const Color.fromARGB(255, 61, 3, 3),
+                                color: const Color.fromARGB(255, 0, 0, 0),
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: const Padding(
@@ -133,7 +133,7 @@ class _LoginState extends State<Login> {
                                      vertical: 10.0),
                                 child: Center(
                                   child: Text(
-                                    "Iniciar sesion",
+                                    "Registrarse",
                                     style: TextStyle(
                                                         
                                         color: Colors.white, 
@@ -151,9 +151,9 @@ class _LoginState extends State<Login> {
                           SizedBox(height: 70.0,),
                           GestureDetector(
                             onTap: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=> SignUp()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> const Login()) );
                             },
-                            child: Text("¿Aun no tienes una cuenta? Crea una", 
+                            child: Text("¿Ya tienes una cuenta? Iniciar sesion ", 
                             style: AppWidget.semiBoldTextFeildStyle(),),
                           )
                 ],

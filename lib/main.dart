@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lishop/pages/bottomnav.dart';
 import 'package:lishop/pages/login.dart';
+import 'package:lishop/pages/signup.dart';
 
 //// colores: marron >255, 93, 37, 3 y beige>255, 161, 110, 34
 
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Login(),
+      home: SignUp(),
     );
   }
 }
