@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lishop/pages/bottomnav.dart';
-import 'package:lishop/pages/home.dart';
 
 //// colores: marron >255, 93, 37, 3 y beige>255, 161, 110, 34
 

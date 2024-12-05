@@ -125,7 +125,7 @@ bool cerveza = false, vino= false, ron=false;
                             const SizedBox(height: 5.0,),
                             Text("8 Oz cada lata", 
                             style: AppWidget.lighteTextFeildStyle(),),
-                            const SizedBox(height: 5.0,),
+                            const SizedBox(height: 6.0,),
                             Text("\$380", 
                             style: AppWidget.semiBoldTextFeildStyle(),)
                         
