@@ -35,7 +35,7 @@ class _SignUpState extends State<SignUp> {
                   top: MediaQuery.of(context).size.height / 3),
               height: MediaQuery.of(context).size.height / 2,
               width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(40),
@@ -121,7 +121,7 @@ class _SignUpState extends State<SignUp> {
                                 borderRadius: BorderRadius.circular(20),
                             elevation: 5.0,
                             child: Container(
-                              padding: EdgeInsets.symmetric(vertical: 8.0),
+                              padding: const EdgeInsets.symmetric(vertical: 8.0),
                               width: 200,
                               decoration: BoxDecoration(
                                 color: const Color.fromARGB(255, 0, 0, 0),
@@ -148,7 +148,7 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
                   ),
-                          SizedBox(height: 70.0,),
+                          const SizedBox(height: 70.0,),
                           GestureDetector(
                             onTap: (){
                               Navigator.push(context, MaterialPageRoute(builder: (context)=> const Login()) );

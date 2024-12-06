@@ -36,7 +36,7 @@ class _LoginState extends State<Login> {
                   top: MediaQuery.of(context).size.height / 3),
               height: MediaQuery.of(context).size.height / 2,
               width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(40),
@@ -121,7 +121,7 @@ class _LoginState extends State<Login> {
                                 borderRadius: BorderRadius.circular(20),
                             elevation: 5.0,
                             child: Container(
-                              padding: EdgeInsets.symmetric(vertical: 8.0),
+                              padding: const EdgeInsets.symmetric(vertical: 8.0),
                               width: 200,
                               decoration: BoxDecoration(
                                 color: const Color.fromARGB(255, 61, 3, 3),
@@ -148,10 +148,10 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                   ),
-                          SizedBox(height: 70.0,),
+                          const SizedBox(height: 70.0,),
                           GestureDetector(
                             onTap: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=> SignUp()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> const SignUp()));
                             },
                             child: Text("¿Aun no tienes una cuenta? Crea una", 
                             style: AppWidget.semiBoldTextFeildStyle(),),
