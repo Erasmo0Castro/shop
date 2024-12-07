@@ -48,25 +48,28 @@ class _OnboardState extends State<Onboard> {
             
             itemBuilder: (_, i){      
             return Padding(
-             padding:EdgeInsets.only(
+             padding:const EdgeInsets.only(
               top: 110.0, 
               left: 20,
               right: 20.0),
 
               child: Column(
                 children: [
-                Image.asset(contents[i].image,
-                height: 350,
-                width: MediaQuery.of(context).size.width,
-                fit: BoxFit.fill, ),
+                 ClipRRect(
+                  borderRadius: BorderRadius.circular(90),
+                  child: Image.asset(contents[i].image,
+                  height: 350,
+                  width: 350,
+                  fit: BoxFit.cover, ),
+                ),
                 
-                SizedBox(height: 40.0,),
+                const SizedBox(height: 40.0,),
           
                 Text(contents[i].title, style: AppWidget.headlineTextFeildStyle(),),
                
-                SizedBox(height: 40.0,),
+                const SizedBox(height: 40.0,),
           
-                Text(contents[i].descripcion, style: AppWidget.lighteTextFeildStyle(),),
+                Text(contents[i].descripcion, style: AppWidget.lighteBigTextFeildStyle(),),
           
               ],
             ),
@@ -89,10 +92,10 @@ class _OnboardState extends State<Onboard> {
                   if(currentIndex==contents.length-1){
                     Navigator.pushReplacement(
                     context,
-                     MaterialPageRoute(builder: (context)=> SignUp()));
+                     MaterialPageRoute(builder: (context)=> const SignUp()));
                   }
                   _controller.nextPage(
-                  duration: Duration(milliseconds: 100),
+                  duration: const Duration(milliseconds: 100),
                    curve:  Curves.bounceIn);
                 },
                 child: Container (
@@ -101,12 +104,12 @@ class _OnboardState extends State<Onboard> {
                      borderRadius: BorderRadius.circular(20)         
                               ),
                   height: 60,
-                  margin: EdgeInsets.all(40),
+                  margin: const EdgeInsets.all(40),
                   width: double.infinity,
                   child: Center(
                     child: Text(
                      currentIndex==contents.length-1?"Empezar": "Siguiente",
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20.0,
                       fontWeight: FontWeight.bold),
@@ -124,7 +127,7 @@ class _OnboardState extends State<Onboard> {
   return Container(
     height: 10.0,
     width: currentIndex == index ? 18: 7,
-    margin: EdgeInsets.only(right: 5),
+    margin: const EdgeInsets.only(right: 5),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(6),
       color: Colors.black38

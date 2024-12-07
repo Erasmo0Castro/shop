@@ -11,15 +11,15 @@ class UnboardingContent {
     UnboardingContent(
     descripcion: 'Selecciona la bebida que quieras \nSolo con un clic', 
     image: "images/Botellas.png", 
-    title: 'Elige entre todas \nlas variedades \nque tenemos \npara ti'),
+    title: 'Elige entre todas las variedades \nque tenemos para ti'),
 
     UnboardingContent(
     descripcion: 'Puedes pagar en efectivo, \ntransferencia o con tarjeta', 
-    image: "images/paymethods.png", 
+    image: "images/paymethod.png", 
     title: 'Facil y seguro'),
 
     UnboardingContent(
-    descripcion: 'Envios a la puerta de tu casa ', 
+    descripcion: 'Envios a la puerta de tu casa \nen menos de 30 minutos ', 
     image: "images/delivey.png", 
     title: 'Entrega inmediata')
   ];
