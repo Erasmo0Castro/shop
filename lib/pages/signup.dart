@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:lishop/Widgets/widget_support.dart';
 import 'package:lishop/pages/login.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:lishop/pages/bottomnav.dart';
+
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -10,6 +14,63 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+
+String email="", password="", name="";
+
+TextEditingController namecontroller= new TextEditingController();
+
+TextEditingController passwordcontroller= new TextEditingController();
+
+TextEditingController mailcontroller= new TextEditingController();
+
+final _formKey= GlobalKey<FormState>();
+
+registration() async{
+if (password!=null){
+  try{
+    UserCredential userCredential= 
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(email:email, password:password);
+    
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      backgroundColor: const Color.fromARGB(255, 37, 189, 11),
+      content:Text(
+        "Su registro ha sido exitoso", 
+      style:
+       TextStyle(
+        fontSize: 20.0),
+        )
+        ));
+
+      // ignore: use_build_context_synchronously
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> BottomNav()));
+
+
+     }on FirebaseException catch(e){
+      if(e.code=='contraseña débil'){
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+         backgroundColor: Colors.orangeAccent,
+          content: Text(
+          "La contraseña muy débil",
+           style: 
+            TextStyle(
+              fontSize: 18.0), )));
+      }
+      else if(e.code=="correo-no-dispoble-"){
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          backgroundColor: Colors.orangeAccent,
+          content: Text(
+           "Esa cuenta ya existe", 
+           style:
+            TextStyle(
+              fontSize: 18.0),)));
+      }
+
+
+     }
+}
+
+}
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -83,68 +144,109 @@ class _SignUpState extends State<SignUp> {
                           color: Colors.white, // Fondo blanco
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Column(
-                        children: [
-                          const SizedBox(height: 5.0),
-                          Text(
-                            "Registrarse",
-                            style: AppWidget.headlineTextFeildStyle(),
-                          ),
-                          TextField(
-                            decoration: InputDecoration(
-                              hintText: 'Nombre',
-                              hintStyle:
-                                  AppWidget.semiBoldTextFeildStyle(),
-                              prefixIcon: const Icon(Icons.person_2_outlined),
+                      child: Form(
+                          key: _formKey,
+                        child: Column(
+                          children: [
+                            const SizedBox(height: 5.0),
+                            Text(
+                              "Registrarse",
+                              style: AppWidget.headlineTextFeildStyle(),
                             ),
-                          ),
-                          TextField(
-                            decoration: InputDecoration(
-                              hintText: 'Correo',
-                              hintStyle:
-                                  AppWidget.semiBoldTextFeildStyle(),
-                              prefixIcon: const Icon(Icons.email_outlined),
-                            ),
-                          ),
-                          TextField(
-                            obscureText: true,
-                            decoration: InputDecoration(
-                              hintText: 'Contraseña',
-                              hintStyle:
-                                  AppWidget.semiBoldTextFeildStyle(),
-                              prefixIcon: const Icon(Icons.password_outlined),
-                            ),
-                          ),
-                         
-                          const SizedBox(height: 50.0),
-                          Material(
-                                borderRadius: BorderRadius.circular(20),
-                            elevation: 5.0,
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(vertical: 8.0),
-                              width: 200,
-                              decoration: BoxDecoration(
-                                color: const Color.fromARGB(255, 0, 0, 0),
-                                borderRadius: BorderRadius.circular(20),
+                            TextFormField(
+                              controller: namecontroller,
+                              validator: (value){
+                                if(value==null|| value.isEmpty){
+                                  return 'Por favor ingrese su nombre';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: 'Nombre',
+                                hintStyle:
+                                    AppWidget.semiBoldTextFeildStyle(),
+                                prefixIcon: const Icon(Icons.person_2_outlined),
                               ),
-                              child: const Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 10.0,
-                                     vertical: 10.0),
-                                child: Center(
-                                  child: Text(
-                                    "Registrarse",
-                                    style: TextStyle(
-                                                        
-                                        color: Colors.white, 
-                                        fontSize: 18.0,
- 
+                            ),
+                            TextFormField(
+                               controller: mailcontroller,
+                              validator: (value){
+                                if(value==null|| value.isEmpty){
+                                  return 'Por favor ingrese su correo';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: 'Correo',
+                                hintStyle:
+                                    AppWidget.semiBoldTextFeildStyle(),
+                                prefixIcon: const Icon(Icons.email_outlined),
+                              ),
+                            ),
+                            TextFormField(
+                               controller: passwordcontroller,
+                                validator: (value){
+                                if(value==null|| value.isEmpty){
+                                  return 'Por favor ingrese su contraseña';
+                                }
+                                return null;
+                              },
+                              obscureText: true,
+                              decoration: InputDecoration(
+                                hintText: 'Contraseña',
+                                hintStyle:
+                                    AppWidget.semiBoldTextFeildStyle(),
+                                prefixIcon: const Icon(Icons.password_outlined),
+                              ),
+                            ),
+                           
+                            const SizedBox(height: 50.0),
+                            GestureDetector(
+                              onTap: ()async{
+                                if(_formKey.currentState!.validate()){
+                                  setState(() {
+                                    email= mailcontroller.text;
+                                    name= namecontroller.text;
+                                    password= passwordcontroller.text;
+
+
+                                  });
+                                }
+                                registration();
+          
+
+                              },
+
+                              child: Material(
+                                    borderRadius: BorderRadius.circular(20),
+                                elevation: 5.0,
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                                  width: 200,
+                                  decoration: BoxDecoration(
+                                    color: const Color.fromARGB(255, 0, 0, 0),
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: const Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 10.0,
+                                         vertical: 10.0),
+                                    child: Center(
+                                      child: Text(
+                                        "Registrarse",
+                                        style: TextStyle(
+                                                            
+                                            color: Colors.white, 
+                                            fontSize: 18.0,
+                                                       
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ),
-                      )], 
+                                                      ),
+                            )], 
+                        ),
                       ),
                     ),
                   ),

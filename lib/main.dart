@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:lishop/pages/bottomnav.dart';
-import 'package:lishop/pages/login.dart';
 import 'package:lishop/pages/onboard.dart';
-import 'package:lishop/pages/signup.dart';
-
+import 'package:firebase_core/firebase_core.dart';
 //// colores: marron >255, 93, 37, 3 y beige>255, 161, 110, 34
 
 
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   runApp(const MyApp());
 }
 
